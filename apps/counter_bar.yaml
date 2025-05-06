@@ -17,13 +17,12 @@ spec:
     syncOptions:
       - CreateNamespace=true
   source:
-    repoURL: https://helm.sikademo.com
-    chart: counter
-    targetRevision: 2025.6.8
+    repoURL: https://github.com/sika-training-examples/2025-05-05_kubernetes-training-counter-example.git
+    path: ./helm
     helm:
       valuesObject:
         frontendHost: counter-bar.k8s.sikademo.com
         EXTRA_TEXT: "bar"
         backendHost: counter-bar-backend.k8s.sikademo.com
-        FONT_COLOR: white
+        FONT_COLOR: green
         BACKGROUND_COLOR: black
