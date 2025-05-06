@@ -25,3 +25,5 @@ spec:
         frontendHost: counter-bar.k8s.sikademo.com
         EXTRA_TEXT: "bar"
         backendHost: counter-bar-backend.k8s.sikademo.com
+        FONT_COLOR: white
+        BACKGROUND_COLOR: black
