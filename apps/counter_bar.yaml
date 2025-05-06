@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: counter-bar
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    namespace: counter-bar
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  source:
+    repoURL: https://helm.sikademo.com
+    chart: counter
+    targetRevision: 2025.6.8
+    helm:
+      valuesObject:
+        frontendHost: counter-bar.k8s.sikademo.com
+        EXTRA_TEXT: "bar"
+        backendHost: counter-bar-backend.k8s.sikademo.com
